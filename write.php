@@ -29,6 +29,19 @@
 
 </style>
 <body>
+	<?php 
+		session_start();
+		$URL = "./index.php";
+		if(!isset($_SESSION['userid'])) {
+	?>
+
+		<script>
+			alert("로그인이 필요합니다");
+			location.replace("<?php echo $URL?>");
+		</script>
+	<?php	
+		}
+	?>
 	<form method = "get" action = "write_action.php">
 	<table  style="padding-top:50px" align = center width=700 border=0 cellpadding=2 >
 		<tr>
@@ -39,7 +52,7 @@
 		<table class = "table2">
 			<tr>
 			<td>작성자</td>
-			<td><input type = text name = name size=20> </td>
+			<td><input type="hidden" name="id" value="<?=$_SESSION['userid']?>"><?=$_SESSION['userid']?></td>
 			</tr>
 	
 			<tr>
@@ -52,10 +65,6 @@
 			<td><textarea name = content cols=85 rows=15></textarea></td>
 			</tr>
 
-			<tr>
-			<td>비밀번호</td>
-			<td><input type = password name = pw size=10 maxlength=10></td>
-			</tr>
 			</table>
 
 			<center>
