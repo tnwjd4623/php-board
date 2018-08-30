@@ -7,7 +7,6 @@
 		$connect = mysqli_connect("localhost", "tnwjd4623", "1q2w3e4r", "tnwjd4623") or die("fail");
 
 		$id = $_GET[name];			//Writer
-		$pw = $_GET[pw];			//Password
 		$title = $_GET[title];			//Title
 		$content = $_GET[content];		//Content
 		$date = date('Y-m-d H:i:s');		//Date
@@ -15,8 +14,8 @@
 		$URL = './index.php';			//return URL
 
 
-		$query = "insert into board (number,title, content, date, hit, id, password) 
-			values(null,'$title', '$content', '$date',0, '$id', '$pw')";
+		$query = "insert into board (number,title, content, date, hit, id) 
+			values(null,'$title', '$content', '$date',0, '$id')";
 
 
 		$result = $connect->query($query);

@@ -81,6 +81,12 @@
 		$number = $_GET['number'];
 
 		session_start();
+
+		/*조회수*/
+		$hit = "update board set hit=hit+1 where number=$number";
+		$connect->query($hit);
+
+		/*게시물 출력*/
 		$query = "select title, content, date, hit, id from board where number =$number";
 		$result = $connect->query($query);
 		$rows = mysqli_fetch_assoc($result);
