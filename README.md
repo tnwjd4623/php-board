@@ -1,4 +1,4 @@
-PHP 기반 게시판
+## PHP/MySQL 사용기
   
 ## USE  
 - Database / MySQL  
